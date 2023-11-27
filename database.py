@@ -18,6 +18,7 @@ class User(Base):
     password = Column(String, nullable=False)
 
 if __name__ == "__main__":
+    Base.metadata.create_all(engine)
     admin = User(username="admin", password=bcrypt.hashpw("admin".encode("utf-8"), bcrypt.gensalt()).decode("utf-8"))
     session.add(admin)
     session.commit()
