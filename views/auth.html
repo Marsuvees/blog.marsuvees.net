@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/auth.css">
-    <title>Fancy Login and Sign-Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, 
+						initial-scale=1.0">
+	<title>GeeksforGeeks</title>
+	<link rel="stylesheet"
+		href="assets/auth.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="form-container sign-up-container">
-            <form action="#">
-                <h1>Create Account</h1>
-                <input type="text" placeholder="Username">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in-container">
-            <form action="#">
-                <h1>Sign in</h1>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us, please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-                <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start your journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="assets/auth.js"></script>
+	<header>
+		<h1 class="heading">GeeksforGeeks</h1>
+		<h3 class="title">Sliding Login & Registration Form</h3>
+	</header>
+
+	<!-- container div -->
+	<div class="container">
+
+		<!-- upper button section to select
+			the login or signup form -->
+		<div class="slider"></div>
+		<div class="btn">
+			<button class="login">Login</button>
+			<button class="signup">Signup</button>
+		</div>
+
+		<!-- Form section that contains the
+			login and the signup form -->
+		<div class="form-section">
+
+			<!-- login form -->
+			<div class="login-box">
+				<input type="email"
+					class="email ele"
+					placeholder="youremail@email.com">
+				<input type="password"
+					class="password ele"
+					placeholder="password">
+				<button class="clkbtn">Login</button>
+			</div>
+
+			<!-- signup form -->
+			<div class="signup-box">
+				<input type="text"
+					class="name ele"
+					placeholder="Enter your name">
+				<input type="email"
+					class="email ele"
+					placeholder="youremail@email.com">
+				<input type="password"
+					class="password ele"
+					placeholder="password">
+				<input type="password"
+					class="password ele"
+					placeholder="Confirm password">
+				<button class="clkbtn">Signup</button>
+			</div>
+		</div>
+	</div>
+	<script src="assets/auth.js"></script>
 </body>
 </html>
