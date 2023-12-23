@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, Column, Integer, String, DateTime, Foreign
 from sqlalchemy.orm import sessionmaker, relationship, declarative_base
 from datetime import datetime
 import bcrypt
+from uuid import uuid4
 
 
 Base = declarative_base()
@@ -13,9 +14,13 @@ except:
     engine = create_engine("sqlite:///blog_marsuvees.db")
 session = sessionmaker(engine)()
 
+def uuid():
+    return str(uuid4())
+
 class User(Base):
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
+    uuid = Column(String, nullable=False, default=uuid)
     username = Column(String, nullable=False, unique=True)
     email = Column(String, nullable=True, unique=True)
     phone_number = Column(String, nullable=True)
@@ -61,14 +66,14 @@ blog_post_tag_association = Table(
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
     admin = User(username="admin", password=bcrypt.hashpw("admin".encode("utf-8"), bcrypt.gensalt()).decode("utf-8"))
-    # session.add(admin)
+    session.add(admin)
     tag1 = Tag(name="welcome")
     tag2 = Tag(name="first")
     # session.add_all((tag1, tag2))
     welcome_post = Post(title="Welcome to blog.marsuvees", content="This is the default welcome post", author_id=1, post_datetime= datetime.now(), tags=[tag1, tag2]) 
-    test_comment = Comment(content="this is a test of the comments.", author_id=1, post_id=1)
+    # test_comment = Comment(content="this is a test of the comments.", author_id=1, post_id=1)
     # session.add(welcome_post)
-    session.add(test_comment)
+    # session.add(test_comment)
     session.commit()
 
 
